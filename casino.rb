@@ -1,7 +1,8 @@
 require 'pry'
 require 'colorize'
-require_relative 'player'
 require 'artii'
+require_relative 'player'
+
 
 class Casino
   # To Do: Hando multiple players
@@ -19,6 +20,7 @@ class Casino
   end
 
   def menu
+    puts '*** Casino MENU ***'
   end
 end
 
