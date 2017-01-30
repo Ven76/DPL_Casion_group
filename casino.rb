@@ -1,6 +1,7 @@
 require 'pry'
 require 'colorize'
 require_relative 'player'
+require 'artii'
 
 class Casino
   # To Do: Hando multiple players
