@@ -6,3 +6,5 @@ gem 'pry' '~> 0.10.4'
 
 # Colors terminal output
 gem 'colorize' '~> 0.8.1'
+
+gem 'artii' '~> 2.1.2'
