@@ -1,3 +1,5 @@
+require_relative 'card'
+
 class Deck
  # Getter and Setter methods for rank, suit and color
  attr_accessor :cards
@@ -15,7 +17,11 @@ class Deck
    @suits.each do |suit|
      @ranks.size.times do |i|
        # Ternary Operator
-       color = (i % 2 == 0) ? 'Black' : 'Red'
+       if suit == 'Spades' || suit == 'Clubs'
+         color = 'black'
+       else
+         color = 'red'
+       end
        @cards << Card.new(@ranks[i], suit, color)
      end
    end
