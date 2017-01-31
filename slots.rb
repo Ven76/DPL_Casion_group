@@ -17,7 +17,7 @@ class Slots
     puts "#{@slot1} #{@slot2} #{@slot3}"
     if @slot1 == 'skull' && @slot2 == 'skull' && @slot3 == 'skull'
       puts "You lose!"
-      @player.wallet.amount -= 25.00
+      @player.wallet.amount -= 100.00
       puts "Your total is now #{@player.wallet.amount}"
     elsif @slot1 == @slot2 && @slot2 == @slot3
       puts "You win!"
@@ -41,12 +41,20 @@ class Slots
     choice = gets.chomp.to_i
 
     if choice == 1
+      @player.wallet.vinny(0)
       @player.wallet.amount = @player.wallet.amount - 0.50
       new_game
     elsif choice == 2
+      to_casino
       # go back to casino
-    else "Please press 1 or 2"
+    else
+      puts"Please press 1 or 2"
+      menu
     end
+  end
+
+  def to_casino
+    Casino.menu(@player)
   end
 
 end

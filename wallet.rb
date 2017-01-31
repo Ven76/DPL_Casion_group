@@ -2,7 +2,14 @@ class Wallet
     attr_accessor :amount
 
   def initialize(amount)
-    # you could randomly create an amount
     @amount = amount
+    vinny(0)
+  end
+
+  def vinny(amt)
+    if @amount <= amt
+      puts 'look pal, we aint got time for bums like you, come back when you got some money'
+       exit(0)
+    end
   end
 end
