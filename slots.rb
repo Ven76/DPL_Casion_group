@@ -58,6 +58,7 @@ class Slots
   end
 
   def explosion
+    DeploySounds.play
     puts "BOOM! The machine blows up in your face".colorize(:red)
     puts "and you are liable for damages. You lose".colorize(:red)
     puts "$5000.".colorize(:red)

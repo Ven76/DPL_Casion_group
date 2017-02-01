@@ -7,7 +7,7 @@ class Dice
  def initialize(player)
    @player = player
    puts """
-       .-------. 
+       .-------.
       /   o   /|
      /_______/o|
      | o     | |
@@ -15,6 +15,7 @@ class Dice
      |     o |/
      '-------'
         """.colorize(:red)
+        DeploySounds.play
    puts '*** welcome to war dice ***'.colorize(:orange)
    puts 'A dollar A roll, high number wins'
    puts 'type roll to play or exit to leave'

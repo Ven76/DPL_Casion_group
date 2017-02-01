@@ -16,6 +16,7 @@ class Casino
 
   def initialize
     puts 'Welcome to the Casino!'.colorize(:red)
+    DeploySounds.play
     @player = Player.new
     puts "What game do you want to play #{player.name}?"
 

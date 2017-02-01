@@ -25,7 +25,9 @@ class High
     |    |    |
     |         |
     |________V|"""
+    DeploySounds.play
     menu
+    
   end
 
   def menu
