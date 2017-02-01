@@ -16,7 +16,7 @@ class Dice
      '-------'
         """.colorize(:red)
         DeploySounds.play
-   puts '*** welcome to war dice ***'.colorize(:orange)
+   puts '*** welcome to war dice ***'.colorize(:green)
    puts 'A dollar A roll, high number wins'
    puts 'type roll to play or exit to leave'
     user_input = gets.chomp
@@ -52,8 +52,8 @@ class Dice
    puts 'you win'
      @player.wallet.amount += 1
   end
-   puts "your wallet #{@player.wallet.amount}"
-   puts 'roll again or exit?'
+   puts "your wallet #{@player.wallet.amount}".colorize(:blue)
+   puts 'roll again or exit?'.colorize(:blue)
    input = gets.chomp
   if input == 'roll' || input == 'roll again'
      roll
