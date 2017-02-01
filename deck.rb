@@ -18,9 +18,9 @@ class Deck
      @ranks.size.times do |i|
        # Ternary Operator
        if suit == 'Spades' || suit == 'Clubs'
-         color = 'black'
+         color = 'black'.colorize(:blue)
        else
-         color = 'red'
+         color = 'red'.colorize(:red)
        end
        @cards << Card.new(@ranks[i], suit, color)
      end

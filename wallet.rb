@@ -8,7 +8,7 @@ class Wallet
 
   def vinny(amt)
     if @amount <= amt
-      puts 'look pal, we aint got time for bums like you, come back when you got some money'
+      puts 'look pal, we aint got time for bums like you, come back when you got some money'.colorize(:green)
        exit(0)
     end
   end

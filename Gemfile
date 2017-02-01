@@ -8,3 +8,5 @@ gem 'pry'
 gem 'colorize'
 
 gem 'artii'
+
+gem 'deploy_sounds'

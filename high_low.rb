@@ -10,13 +10,26 @@ class High
   def initialize(player)
     @player = player
     @deck = Deck.new.cards
-    menu
+    image
   end
 
 
 
+  def image
+    puts """
+    ___________
+    |A        |
+    |    _    |
+    |   ( )   |
+    | (_ ' _) |
+    |    |    |
+    |         |
+    |________V|"""
+    menu
+  end
+
   def menu
-    puts "** Gettin' High Card **"
+    puts "** Gettin' High Card **".colorize(:yellow)
     puts "1) Deal card"
     puts "2) Back to CASINO"
     play_game = gets.chomp.to_i
@@ -34,7 +47,7 @@ class High
   def deal
     @deck.shuffle
     @deal = @deck.sample
-    puts "#{@deal.color} #{@deal.rank} of #{@deal.suit}"
+    puts "#{@deal.color} #{@deal.rank} of #{@deal.suit}".colorize(:green)
     wager
   end
 
@@ -51,24 +64,28 @@ class High
     card_guess = @deck.sample
     puts "Is the next card High or Low?"
     user_input = gets.chomp
-    puts "#{@card_guess.color} #{@card_guess.rank} of #{@card_guess.suit}"
+    puts "#{@card_guess.color} #{@card_guess.rank} of #{@card_guess.suit}".colorize(:green)
 
-    if @deal.rank > @card_guess.rank && user_input == 'High'
+    if @deal.rank > @card_guess.rank && user_input == 'High' || user_input == 'high' || user_input == 'HIGH'
       puts 'You lose, you suck.'
       menu
-    elsif @deal.rank < @card_guess.rank && user_input == 'High'
+    elsif @deal.rank < @card_guess.rank && user_input == 'High' || user_input == 'high' || user_input == 'HIGH'
       puts 'YOU WIN!'
       @player.wallet.amount = @player.wallet.amount + @user_bet * 2
       puts "You now have #{@player.wallet.amount}"
       menu
-    elsif @deal.rank < @card_guess.rank && user_input == 'Low'
+    elsif @deal.rank < @card_guess.rank && user_input == 'Low' || user_input == 'low' || user_input == 'LOW'
       puts "Too bad! You lose"
       menu
-    elsif @deal.rank > @card_guess.rank && user_input == 'Low'
+    elsif @deal.rank > @card_guess.rank && user_input == 'Low' || user_input == 'low' || user_input == 'LOW'
       puts 'WINNING!'
         @player.wallet.amount = @player.wallet.amount + @user_bet * 2
         puts "You now have #{@player.wallet.amount}"
         menu
+      elsif @deal.rank == @card_guess
+        puts "Tie goes to player. That's a win!"
+          @player.wallet.amount = @player.wallet.amount + @user_bet * 2
+          menu
       else
         puts 'Please write High or Low'
         guess

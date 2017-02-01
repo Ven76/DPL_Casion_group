@@ -1,6 +1,7 @@
 require 'pry'
 require 'colorize'
 require 'artii'
+require 'deploy_sounds'
 require_relative 'player'
 require_relative 'deck'
 require_relative 'high_low'
@@ -14,7 +15,7 @@ class Casino
   attr_accessor :player
 
   def initialize
-    puts 'Welcome to the Casino!'.colorize(:blue)
+    puts 'Welcome to the Casino!'.colorize(:red)
     @player = Player.new
     puts "What game do you want to play #{player.name}?"
 
@@ -25,10 +26,11 @@ class Casino
   end
 
   def self.menu(player)
-    puts '*** CASINO MENU ***'
+    puts "*** CASINO MENU ***".colorize(:yellow)
     puts '1) High Low'
     puts '2) Slots'
     puts '3) War Dice'
+    puts '4) Exit Casino'
     user_input = gets.chomp.to_i
 
     if user_input == 1
@@ -37,6 +39,9 @@ class Casino
       Slots.new(player)
     elsif user_input == 3
       Dice.new(player)
+    elsif user_input == 4
+      puts "Thank you for playing".colorize(:green)
+      exit(0)
     else
       puts 'naw, choose again'
       menu

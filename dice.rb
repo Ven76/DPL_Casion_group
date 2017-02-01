@@ -6,7 +6,16 @@ class Dice
 
  def initialize(player)
    @player = player
-   puts '*** welcome to war dice ***'
+   puts """
+       .-------. 
+      /   o   /|
+     /_______/o|
+     | o     | |
+     |   o   |o/
+     |     o |/
+     '-------'
+        """.colorize(:red)
+   puts '*** welcome to war dice ***'.colorize(:orange)
    puts 'A dollar A roll, high number wins'
    puts 'type roll to play or exit to leave'
     user_input = gets.chomp
